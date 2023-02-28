@@ -8,11 +8,11 @@
         public abstract void TakeTurn(Action action);
     }
 
-    public class Player : Character
+    public class TrueProgrammer : Character
     {
         public override string Name { get; }
         public override Action? Action { get; set; }
-        public Player(string name) => Name = name;
+        public TrueProgrammer(string name) => Name = name;
 
         public override void TakeTurn(Action action) => action.Invoke();
     }
