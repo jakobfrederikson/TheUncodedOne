@@ -21,25 +21,10 @@
                     {
                         Console.WriteLine();
                         ColouredConsole.WriteLine($"It is {c.Name}'s turn...", ConsoleColor.Gray);
-                        Thread.Sleep(500);
-                        c.TakeTurn(GetAction(c));
+                        party.Player.ChooseAction(this, c).Run(this, c);
                     }
                 }
             }
-        }
-
-        private Action GetAction(Character c)
-        {
-            int input = 0;
-            if (c.PlayerType == PlayerType.Human)
-                input = Convert.ToInt32(ColouredConsole.Prompt("What action would you like to perform? (1. Do Nothing)"));
-            else
-                input = 1;
-
-            return (input) switch
-            {
-                _ => () => Console.WriteLine($"{c.Name} did NOTHING.")
-            };
         }
     }
 }

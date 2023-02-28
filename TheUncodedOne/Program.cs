@@ -1,12 +1,12 @@
 ﻿using TheUncodedOne;
 
-string name = ColouredConsole.Prompt("What is your name?");
+string name = ColouredConsole.Prompt("What is your name?").ToUpper();
 
-Party heroesParty = new Party();
+Party heroesParty = new Party(new ComputerPlayer());
 heroesParty.Characters.Add(new TrueProgrammer(name));
 
-Party monstersParty = new Party();
+Party monstersParty = new Party(new ComputerPlayer());
 monstersParty.Characters.Add(new Skeleton());
 
-var game = new Game(heroesParty, monstersParty);
+Game game = new Game(heroesParty, monstersParty);
 game.Run();
