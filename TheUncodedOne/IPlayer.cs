@@ -10,7 +10,7 @@
         public IAction ChooseAction(Game game, Character character)
         {
             Thread.Sleep(500);
-            return new DoNothingAction();
+            return new AttackAction(character.Attack, game.GetEnemyPartyFor(character).Characters[0]);
         }
     }
 }
