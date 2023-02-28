@@ -29,6 +29,5 @@
 
         public Party GetPartyFor(Character character) => _heroes.Characters.Contains(character) ? _heroes : _monsters;
         public Party GetEnemyPartyFor(Character character) => _heroes.Characters.Contains(character) ? _monsters : _heroes;
-
     }
 }
