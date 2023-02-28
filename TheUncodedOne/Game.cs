@@ -30,7 +30,11 @@
 
         private Action GetAction(Character c)
         {
-            int input = Convert.ToInt32(ColouredConsole.Prompt("What action would you like to perform? (1. Do Nothing)"));
+            int input = 0;
+            if (c.PlayerType == PlayerType.Human)
+                input = Convert.ToInt32(ColouredConsole.Prompt("What action would you like to perform? (1. Do Nothing)"));
+            else
+                input = 1;
 
             return (input) switch
             {
