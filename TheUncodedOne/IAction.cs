@@ -24,12 +24,22 @@
         public void Run(Game game, Character c)
         {
             int attackDamage = _attack.DealDamage();
-            _enemyCharacter.HealthToAttack -= _attack.DealDamage(); 
-            if (_enemyCharacter.HealthToAttack < 0) _enemyCharacter.HealthToAttack = 0; // Don't let health go below 0
-
+            _enemyCharacter.HealthToAttack -= attackDamage;
+            if (_enemyCharacter.HealthToAttack <= 0)
+            {
+                _enemyCharacter.IsAlive = false;
+                _enemyCharacter.HealthToAttack = 0; // Don't let health go below 0
+            }
             Console.WriteLine($"{c.Name} used {_attack.Name} on {_enemyCharacter.Name}!");
             Console.WriteLine($"{_attack.Name} dealt {attackDamage} to {_enemyCharacter.Name}!");
             Console.WriteLine($"{_enemyCharacter.Name} is now at {_enemyCharacter.HealthToAttack}/{_enemyCharacter.MaxHealth}");
+
+            if (!_enemyCharacter.IsAlive)
+            {
+                ColouredConsole.WriteLine($"{_enemyCharacter.Name} has been defeated!", ConsoleColor.Red);
+                game.GetPartyFor(_enemyCharacter).Characters.Remove(_enemyCharacter);
+            }
+
             Console.ReadKey(false);
         }
     }
