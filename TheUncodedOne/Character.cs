@@ -4,12 +4,16 @@
     {
         public abstract string Name { get; }
         public abstract IAttack Attack { get; }
+        public abstract int MaxHealth { get; }
+        public abstract int HealthToAttack { get; set; }
     }
 
     public class TrueProgrammer : Character
     {
         public override string Name { get; }
         public override IAttack Attack { get; } = new Punch();
+        public override int MaxHealth { get; } = 25;
+        public override int HealthToAttack { get; set; } = 25;
         public TrueProgrammer(string name) => Name = name;
     }
 
@@ -17,5 +21,7 @@
     {
         public override string Name => "SKELETON";
         public override IAttack Attack { get; } = new BoneCrunch();
+        public override int MaxHealth { get; } = 5;
+        public override int HealthToAttack { get; set; } = 5;
     }
 }
