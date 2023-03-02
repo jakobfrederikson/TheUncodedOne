@@ -19,6 +19,7 @@
         public int DealDamage()
         {
             Random random = new Random();
+            return 25;
             if (random.Next(2) == 1) return 0;
             return 1;
         }

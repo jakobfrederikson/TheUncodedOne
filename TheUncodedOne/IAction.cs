@@ -39,8 +39,6 @@
                 ColouredConsole.WriteLine($"{_enemyCharacter.Name} has been defeated!", ConsoleColor.Red);
                 game.GetPartyFor(_enemyCharacter).Characters.Remove(_enemyCharacter);
             }
-
-            Console.ReadKey(false);
         }
     }
 
