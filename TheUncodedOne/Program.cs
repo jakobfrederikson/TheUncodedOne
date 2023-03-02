@@ -5,15 +5,19 @@ string name = ColouredConsole.Prompt("What is your name?").ToUpper();
 Party heroesParty = new Party(new ComputerPlayer());
 heroesParty.Characters.Add(new TrueProgrammer(name));
 
-Party firstEnemyParty = new Party(new ComputerPlayer());
-firstEnemyParty.Characters.Add(new Skeleton());
-Party secondEnemyParty = new Party(new ComputerPlayer());
-secondEnemyParty.Characters.Add(new Skeleton());
-secondEnemyParty.Characters.Add(new Skeleton());
+Party firstBattle = new Party(new ComputerPlayer());
+firstBattle.Characters.Add(new Skeleton());
+Party secondBattle = new Party(new ComputerPlayer());
+secondBattle.Characters.Add(new Skeleton());
+secondBattle.Characters.Add(new Skeleton());
+
+Party thirdBattle = new Party(new ComputerPlayer());
+thirdBattle.Characters.Add(new UncodedOne());
 
 List<Party> allMonsters = new List<Party>() { 
-                                                firstEnemyParty,
-                                                secondEnemyParty 
+                                                firstBattle,
+                                                secondBattle,
+                                                thirdBattle
                                             };
 
 Game game = new Game(heroesParty, allMonsters);

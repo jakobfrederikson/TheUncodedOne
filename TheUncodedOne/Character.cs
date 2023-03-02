@@ -27,4 +27,13 @@
         public override int HealthToAttack { get; set; } = 5;
         public override bool IsAlive { get; set; } = true;
     }
+
+    public class UncodedOne : Character
+    {
+        public override string Name => "THE UNCODED ONE";
+        public override IAttack Attack { get; } = new Unraveling();
+        public override int MaxHealth { get; } = 15;
+        public override int HealthToAttack { get; set; } = 15;
+        public override bool IsAlive { get; set; } = true;
+    }
 }
